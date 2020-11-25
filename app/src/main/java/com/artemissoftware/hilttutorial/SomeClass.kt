@@ -4,14 +4,14 @@ import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@ActivityScoped
-class SomeClass @Inject constructor(private val someOtherClass: SomeOtherClass){
+
+class SomeClass @Inject constructor(private val someInterfaceImpl: SomeInterface){
 
     fun doAThing(): String{
-        return "Something was done!!"
+        return "Look I got: ${someInterfaceImpl.doSomeOtherThing()}"
     }
 
     fun doSomeOtherThing(): String{
-        return someOtherClass.doSomeOtherThing() + " in the someclass"
+        return someInterfaceImpl.doSomeOtherThing() + " in the someclass"
     }
 }
