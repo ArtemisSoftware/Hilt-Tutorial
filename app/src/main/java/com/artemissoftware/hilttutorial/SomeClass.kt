@@ -5,10 +5,14 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
-class SomeClass @Inject constructor(private val someInterfaceImpl: SomeInterface){
+class SomeClass @Inject constructor(@Impl1 private val someInterfaceImpl: SomeInterface, @Impl2 private val someInterfaceImpl2: SomeInterface){
 
     fun doAThing(): String{
         return "Look I got: ${someInterfaceImpl.doSomeOtherThing()}"
+    }
+
+    fun doAThing2(): String{
+        return "Look I got: ${someInterfaceImpl2.doSomeOtherThing()}"
     }
 
     fun doSomeOtherThing(): String{

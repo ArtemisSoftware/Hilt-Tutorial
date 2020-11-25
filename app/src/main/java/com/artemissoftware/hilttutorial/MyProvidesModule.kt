@@ -6,28 +6,35 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ApplicationComponent
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
 @Module
 class MyProvidesModule {
 
-    @Singleton
-    @Provides
-    fun provideSomeString(): String{
-        return "some string"
-    }
 
 
+    @Impl1
     @Singleton
     @Provides
-    fun provideSomeInterface(someString: String): SomeInterface{
-        return SomeInterfaceImpl(someString);
+    fun provideSomeInterface1(): SomeInterface{
+        return SomeInterfaceImpl();
     }
 
+    @Impl2
     @Singleton
     @Provides
-    fun provideGson(): Gson{
-        return Gson()
+    fun provideSomeInterface2(): SomeInterface{
+        return SomeInterfaceImpl2();
     }
+
 }
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class Impl1
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class Impl2
