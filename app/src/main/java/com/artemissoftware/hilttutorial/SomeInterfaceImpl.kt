@@ -2,8 +2,8 @@ package com.artemissoftware.hilttutorial
 
 import javax.inject.Inject
 
-class SomeInterfaceImpl @Inject constructor() : SomeInterface {
+class SomeInterfaceImpl @Inject constructor(private val someString: String) : SomeInterface {
     override fun doSomeOtherThing(): String {
-        return " a thing from the interface"
+        return " a thing from the interface + ${someString}"
     }
 }
