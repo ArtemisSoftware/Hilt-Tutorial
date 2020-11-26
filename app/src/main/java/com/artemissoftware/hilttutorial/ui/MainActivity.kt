@@ -1,7 +1,8 @@
-package com.artemissoftware.hilttutorial
+package com.artemissoftware.hilttutorial.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.artemissoftware.hilttutorial.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
